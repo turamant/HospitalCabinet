@@ -1,1 +1,1 @@
-web: gunicorn cabinet.wsgi --log-file -
+web: gunicorn Config.wsgi --log-file -
