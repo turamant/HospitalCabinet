@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Список пациентов больницы: </h2>
+<ul class="list-group">
+{% for pacient in pacients %}
+<li class="list-group-item">{{ pacient.id}}.<a href="{{ pacient.get_absolute_url }}">{{ pacient }}</a></li>
+{% endfor %}
+</ul>
+Всего пациентов: {{ all_pacients }}
+{% endblock %}

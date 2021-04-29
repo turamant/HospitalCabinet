@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h2>Карточка пациента: </h2>
+<img src="{{ pacient.photo.url }}" width="100" height="100" alt="foto"/>
+<ul>
+    <li>Номер мед.карты: {{ pacient.number_card }}</li>
+    <li>Фамилия: {{ pacient.family }}</li>
+    <li>Имя: {{ pacient.name }}</li>
+    <li>Дата рождения: {{ pacient.birthday }}</li>
+    <li>Адрес проживания: {{ pacient.adress }}</li>
+    <li>Сотовый телефон: {{ pacient.phone }}</li>
+    <li>E-mail: {{ pacient.mail }}</li>
+</ul>
+<h3>Документы пациента:</h3>
+{% for docpac in pacient.pacients.all %}
+<li>Титул:{{ docpac.title }}
+    <p>Документы: <a href="{{ docpac.file.get_absolute_url }}">{{ docpac.file }}</a></p>
+    <p>Снимки: <img src="{{ docpac.image.url }}" width="100" height="100"/></p>
+    <p>Скачать снимки:<a href="{{ docpac.image.get_absolute_url }}">{{ docpac.image }}</a></p>
+   </li>
+{% endfor %}
+<h2>Врачи у которых наблюдается пациент</h2>
+{% for pacient in pacient.number_cards.all %}
+<li>Услуга: {{ pacient.code_service }}
+    Специальность: {{ pacient.tab_number.special }}
+    Фамилия Доктора: <a href="{{pacient.get_absolute_url }}">{{ pacient.tab_number.family }}</a>
+    Цена услуги:{{ pacient.code_service.price_service }} руб.
+{% endfor %}
+
+
+
+<h3>Посмотреть всех докторов поликлиники:</h3>
+Фамилия доктора:
+{% for recept in receptions %}
+<a href="{{ recept.tab_number.get_absolute_url  }}">{{ recept.tab_number }}</a>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h2>Карточка приема пациента: </h2>
+<ul>
+    <li>Код приема: {{ recept.code_reception }}</li>
+    <li>Дата приема: {{ recept.date_reception }}</li>
+    <li>Время приема: {{ recept.time_reception }}</li>
+    <li><a href="{{ recept.number_card.get_absolute_url }}">Пациент: {{ recept.number_card }}</a></li>
+    <li>Доктор: {{ recept.tab_number }}</li>
+    <li>Код услуги: {{ recept.code_service }}</li>
+    <li>Стоимсоть услуги: {{ recept.code_service.price_service }}</li>
+</ul>
+
+
+{% for doctor in doctors %}
+<p>{{ doctor.family }}</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Список приема пациентов: </h2>
+
+<ul class="list-group">
+{% for recept in receptions %}
+<li class="list-group-item"><a href="{{ recept.get_absolute_url }}">{{ recept }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
+

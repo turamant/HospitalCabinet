@@ -1,2 +1,5 @@
 .idea/
 requir.doc
+media/
+*.pyc
+__pycache__

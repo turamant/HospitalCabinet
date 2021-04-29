@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h2>Карточка врача: </h2>
+    {% for foto in doctor.doctors.all %}
+    <img src="{{ foto.image.url }}" height="100" width="100" alt="фоточка"/>
+    {% endfor %}
+<ul>
+    <li>Табельный номер: {{ doctor.tab_number }}</li>
+    <li>Фамилия: {{ doctor.family }}</li>
+    <li>Имя: {{ doctor.name }}</li>
+    <li>Дата поступления на работу: {{ doctor.date_from_begin }}</li>
+    <li>Номер кабинета: {{ doctor.kabinet_number }}</li>
+    <li>Специальность: {{ doctor.special }}</li>
+    <li>E-mail: {{ doctor.mail }}</li>
+</ul>
+
+<h3>Все пациенты доктора {{ doctor.family }} списком:</h3>
+<ul>
+{% for doc in doctor.tab_numbers.all %}
+<li>Фамилия пациента:  <a href="{{ doc.get_absolute_url }}">{{ doc.number_card.family }}</a>
+    Код услуги: {{ doc.code_service }}
+    Стоимостьуслуги: {{ doc.code_service.price_service }} руб.
+    Дата приема: {{ doc.date_reception }}
+</li>
+{% endfor %}
+    Сумма всех услуг :
+</ul>
+
+<h2>Все приемы доктора:{{ doctor.family }}</h2>
+<ul>
+{% for doc in doctor.tab_numbers.all %}
+<li>Код приема: <a href="{{ doc.get_absolute_url }}">{{ doc.code_reception }}</a>
+</li>
+{% endfor %}
+</ul>
+<h2><a href="{% url 'create_reception_pacient' %}">Записаться на прием к доктору {{ doctor.family }}</h2>
+
+Всего докторов: {{ all_doctors }}
+{% endblock %}

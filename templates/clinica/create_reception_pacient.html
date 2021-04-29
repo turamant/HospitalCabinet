@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Форма ввода приемов:</h2>
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Save">
+</form>
+{% endblock %}
+
+<!--
+<form action="{% url 'list_pacient' %}" method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="code_reception" class="form-label">Code reception</label>
+    <input type="text" class="form-control" id="code_reception" aria-describedby="emailHelp">
+    <div id="code-receptionHelp" class="form-text">Текст помощи хелп</div>
+  </div>
+  <div class="mb-3">
+    <label for="url" class="form-label">Url</label>
+    <input type="text" class="form-control" id="url">
+  </div>
+<div class="mb-3">
+    <label for="date_reception" class="form-label">Date_reception</label>
+    <input type="date" class="form-control" id="date_reception">
+  </div>
+<div class="mb-3">
+    <label for="time_reception" class="form-label">Time_reception</label>
+    <input type="time" class="form-control" id="time_reception">
+  </div>
+<div class="col-md-4">
+    <label for="tab_number" class="form-label">Tab_number</label>
+    <select class="form-select" id="tab_number" name="tab_number">
+    {% for tab in form.tab_number.field.choices.queryset%}
+    <option value="{{ tab.id }}">{{ tab.family }}</option>
+    {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <label for="number_card" class="form-label">Number_card</label>
+    <select class="form-select" id="number_card" name="number_card">
+    {% for num in form.number_card.field.choices.queryset%}
+    <option value="{{ num.id }}">{{ num.family }}</option>
+    {% endfor %}
+    </select>
+  </div>
+
+<div class="col-md-4">
+    <label for="code_service" class="form-label">Code_service</label>
+    <select class="form-select" id="code_service" name="code_service">
+    {% for code in form.code_service.field.choices.queryset%}
+    <option value="{{ code.id }}">{{ code.title_service }}</option>
+    {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+-->
