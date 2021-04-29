@@ -1,0 +1,1 @@
+Accounting for the admission of patients in the clinic
