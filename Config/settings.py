@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'cabinet_db',
         'USER': 'db_user',
         'PASSWORD': 'db_user',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }
